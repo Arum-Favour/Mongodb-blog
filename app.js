@@ -6,7 +6,7 @@ import _ from "lodash";
 //const ejs = require("ejs");
 
 mongoose.connect(
-  "mongodb+srv://Kingson:KavMn5YvwC6STQmT@cluster0.al8mjom.mongodb.net/postDB"
+  process.env.STRING
 );
 
 const postSchema = new mongoose.Schema({
