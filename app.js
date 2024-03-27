@@ -6,9 +6,7 @@ import _ from "lodash";
 
 //const ejs = require("ejs");
 
-mongoose.connect(
-  process.env.STRING
-);
+mongoose.connect(process.env.STRING);
 
 const postSchema = new mongoose.Schema({
   title: String,
@@ -69,15 +67,15 @@ app.post("/compose", function (req, res) {
 });
 
 app.get("/posts/:postName", async function (req, res) {
-  const requestedTitle = req.params.postName; 
+  const requestedTitle = req.params.postName;
   const resp = await Post.findOne({ title: requestedTitle }).exec();
   if (resp) {
     res.render("post", {
       title: resp.title,
       content: resp.content,
     });
-  }else{
-    res.status(404 ,error("Data not Found"));
+  } else {
+    res.status(404, error("Data not Found"));
   }
   // Post.forEach(function (post) {
   //   const storedTitle = _.lowerCase(post.title);
